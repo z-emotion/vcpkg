@@ -7717,8 +7717,8 @@
       "port-version": 1
     },
     "usd": {
-      "baseline": "20.08",
-      "port-version": 4
+      "baseline": "22.11",
+      "port-version": 1
     },
     "usockets": {
       "baseline": "0.8.3",

@@ -13,8 +13,8 @@ See https://vcpkg.io/en/docs/examples/versioning.getting-started.html for instru
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO PixarAnimationStudios/USD
-    REF 71b4baace2044ea4400ba802e91667f9ebe342f0 # v20.08
-    SHA512 0f23b84d314d88d3524f22ebc344e2b506cb7e8ac064726df432a968a4bae0fd2249e968bd10845de9067290eaaa3f8c9e2a483551ffc06b826f3eba816061a9
+    REF 0c7b9a95f155c221ff7df9270a39a52e3b23af8b # v22.11
+    SHA512 2164d7758b6e3c709893586b3551b99ef53253d12a2869a7508037ef0f8f0e66a146458aa283eef7c95ae5aa5be8848a931eece2832235edbce3755c0444a6a8
     HEAD_REF master
     PATCHES
         fix_build-location.patch
@@ -35,7 +35,6 @@ vcpkg_cmake_configure(
         -DPXR_BUILD_ALEMBIC_PLUGIN:BOOL=OFF
         -DPXR_BUILD_EMBREE_PLUGIN:BOOL=OFF
         -DPXR_BUILD_IMAGING:BOOL=OFF
-        -DPXR_BUILD_MAYA_PLUGIN:BOOL=OFF
         -DPXR_BUILD_MONOLITHIC:BOOL=OFF
         -DPXR_BUILD_TESTS:BOOL=OFF
         -DPXR_BUILD_USD_IMAGING:BOOL=OFF
@@ -57,6 +56,7 @@ vcpkg_cmake_config_fixup(CONFIG_PATH cmake PACKAGE_NAME pxr)
 vcpkg_copy_pdbs()
 
 # Remove duplicates in debug folder
+file(REMOVE ${CURRENT_PACKAGES_DIR}/debug/pxrConfig.cmake)
 file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/include)
 
 # Handle copyright
